@@ -1,0 +1,144 @@
+[
+  {
+    "id": "cachoeira-roncador",
+    "nome": "Cachoeira do Roncador",
+    "ranking": 1,
+    "categoria": "Cachoeiras",
+    "avaliacao": {
+      "media": 4.0,
+      "quantidade": 705
+    },
+    "custo": {
+      "tipo": "pessoa",
+      "valor": 25.0
+    },
+    "localizacao": "Rodovia TO 030, Km 38, Taquaruçu",
+    "descricao": "A Cachoeira do Roncador Palmas fica em Taquaruçu, a aproximadamente 30 km de Palmas, de fácil acesso e bem movimentada aos finais de semana. A cachoeira tem cerca de 80 mt de altura e é muito bonita.\n\nCom 70 metros de altura, a queda forma um pequeno lago de água fria e revigorante. A Cachoeira da Roncadeira juntamente com a Cachoeira do Escorrega Macaco recebem cerca de 400 visitantes por dia em alta temporada. Elas ficam em uma propriedade privada, que se encontra dentro de uma APA, por isso a visitação é controlada e é cobrada entrada.",
+    "horarios": [
+      {
+        "dia": "domingo",
+        "inicio": "00:00",
+        "fim": "23:59"
+      },
+      {
+        "dia": "segunda-feira",
+        "inicio": "00:00",
+        "fim": "23:59"
+      },
+      {
+        "dia": "terca-feira",
+        "inicio": "00:00",
+        "fim": "23:59"
+      },
+      {
+        "dia": "quarta-feira",
+        "inicio": "00:00",
+        "fim": "23:59"
+      },
+      {
+        "dia": "quinta-feira",
+        "inicio": "00:00",
+        "fim": "23:59"
+      },
+      {
+        "dia": "sexta-feira",
+        "inicio": "00:00",
+        "fim": "23:59"
+      },
+      {
+        "dia": "sabado",
+        "inicio": "00:00",
+        "fim": "23:59"
+      }
+    ],
+    "destaques": [
+      {
+        "valor": "familia",
+        "titulo": "Família"
+      },
+      {
+        "valor": "natureza",
+        "titulo": "Natureza"
+      },
+      {
+        "valor": "nao-acessivel",
+        "titulo": "Não acessível"
+      },
+      {
+        "valor": "estacionamento",
+        "titulo": "Estacionamento"
+      }
+    ]
+  },
+  {
+    "id": "praia-da-graciosa",
+    "nome": "Praia da Graciosa",
+    "ranking": 2,
+    "categoria": "Praias",
+    "avaliacao": {
+      "media": 4.0,
+      "quantidade": 1285
+    },
+    "custo": {
+      "tipo": "pessoa",
+      "valor": 0.0
+    },
+    "localizacao": "Orla de Palmas",
+    "descricao": "A Praia da Graciosa Palmas é banhada pelo enorme Lago de Palmas, formado após a construção da Usina Hidrelétrica Luís Eduardo Magalhães, que antes da usina era o Rio Tocantins com águas correntes e mais fortes.\n\nLocal ideal pra quem quer se refrescar do calor de Palmas, e para a segurança de todos, existem redes de proteções nas áreas de banho. Além de tudo isso que falamos, a Praia da Graciosa guardou o melhor pro final, o pôr-do-sol, um verdadeiro espetáculo da natureza, então nossa dica é que você vá a praia na parte da tarde para ver o pôr-do-sol, vale a pena.",
+    "horarios": [
+      {
+        "dia": "domingo",
+        "inicio": "00:00",
+        "fim": "23:59"
+      },
+      {
+        "dia": "segunda-feira",
+        "inicio": "00:00",
+        "fim": "23:59"
+      },
+      {
+        "dia": "terca-feira",
+        "inicio": "00:00",
+        "fim": "23:59"
+      },
+      {
+        "dia": "quarta-feira",
+        "inicio": "00:00",
+        "fim": "23:59"
+      },
+      {
+        "dia": "quinta-feira",
+        "inicio": "00:00",
+        "fim": "23:59"
+      },
+      {
+        "dia": "sexta-feira",
+        "inicio": "00:00",
+        "fim": "23:59"
+      },
+      {
+        "dia": "sabado",
+        "inicio": "00:00",
+        "fim": "23:59"
+      }
+    ],
+    "destaques": [
+      {
+        "valor": "familia",
+        "titulo": "Família"
+      },
+      {
+        "valor": "praia",
+        "titulo": "Praia"
+      },
+      {
+        "valor": "financeiro",
+        "titulo": "Gratuito"
+      },
+      {
+        "valor": "estacionamento",
+        "titulo": "Estacionamento"
+      }
+    ]
+  }
+]
