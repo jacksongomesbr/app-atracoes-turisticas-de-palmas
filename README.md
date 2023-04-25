@@ -1,16 +1,10 @@
-# aula_3_turismo_palmas
+# app_turismo_palmas
 
-A new Flutter project.
+## Variáveis de ambiente
 
-## Getting Started
+Para executar este aplicativo, o ambiente de execução precisa das seguintes variáveis:
 
-This project is a starting point for a Flutter application.
+* `API_HOST`: o endereço base para conexão à API REST que fornece os dados das atrações turísticas
+* `MEDIA_HOST`: o endereço base para o fornecimento de arquivos de imagens das atrações turísticas
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.

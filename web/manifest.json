@@ -1,6 +1,6 @@
 {
-    "name": "aula_3_turismo_palmas",
-    "short_name": "aula_3_turismo_palmas",
+    "name": "app_turismo_palmas",
+    "short_name": "app_turismo_palmas",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

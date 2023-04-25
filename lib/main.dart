@@ -1,4 +1,4 @@
-import 'package:aula_3_turismo_palmas/screens/home.dart';
+import 'package:app_turismo_palmas/screens/home.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 

@@ -1,10 +1,10 @@
 # Project-level configuration.
 cmake_minimum_required(VERSION 3.14)
-project(aula_3_turismo_palmas LANGUAGES CXX)
+project(app_turismo_palmas LANGUAGES CXX)
 
 # The name of the executable created for the application. Change this to change
 # the on-disk name of your application.
-set(BINARY_NAME "aula_3_turismo_palmas")
+set(BINARY_NAME "app_turismo_palmas")
 
 # Explicitly opt in to modern CMake behaviors to avoid warnings with recent
 # versions of CMake.

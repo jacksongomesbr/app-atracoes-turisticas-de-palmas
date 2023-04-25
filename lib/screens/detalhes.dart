@@ -1,7 +1,8 @@
-import 'package:aula_3_turismo_palmas/widgets/avaliacao.dart';
+import 'package:app_turismo_palmas/widgets/avaliacao.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import '../constants.dart';
 import '../models/AtracaoTuristica.dart';
 
 final Map<String, IconData> iconesDeDetalhes = {
@@ -53,7 +54,7 @@ class _PaginaDetalhesDaAtracaoState extends State<PaginaDetalhesDaAtracao> {
             foregroundColor: Colors.white70,
             flexibleSpace: FlexibleSpaceBar(
               background: Image(
-                image: AssetImage('assets/images/${widget.atracao.id}_big.jpg'),
+                image: NetworkImage('${Constants.MEDIA_HOST}${widget.atracao.foto.small}'),
                 fit: BoxFit.cover,
               ),
             ),

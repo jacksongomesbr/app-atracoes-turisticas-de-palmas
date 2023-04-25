@@ -1,10 +1,13 @@
 import 'dart:convert';
 
-import 'package:aula_3_turismo_palmas/screens/sobre.dart';
+import 'package:app_turismo_palmas/screens/sobre.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+
 
 import '../models/AtracaoTuristica.dart';
 import '../services/AtracaoTuristicaService.dart';
+import '../constants.dart';
 import 'detalhes.dart';
 
 class PaginaHome extends StatefulWidget {
@@ -18,11 +21,12 @@ class _PaginaHomeState extends State<PaginaHome> {
   late Future<List<AtracaoTuristica>> _atracoes;
 
   Future<List<AtracaoTuristica>> carregarDados() async {
-    String data = await DefaultAssetBundle.of(context)
-        .loadString('assets/data/atracoes.json');
-    final json = jsonDecode(data);
-    List<AtracaoTuristica> atracoes = AtracaoTuristicaService.fromJson(json);
-    return atracoes;
+    final response = await http.get(Uri.parse('${Constants.API_HOST}/atracoes-turisticas?populate=*'));
+    if (response.statusCode == 200) {
+      return AtracaoTuristicaService.fromJson(jsonDecode(response.body));
+    } else {
+      throw Exception('Falha ao carregar a lista de atrações turísticas.');
+    }
   }
 
   @override
@@ -60,8 +64,7 @@ class _PaginaHomeState extends State<PaginaHome> {
                     .map(
                       (atracao) => ListTile(
                         leading: CircleAvatar(
-                          backgroundImage: AssetImage(
-                              'assets/images/${atracao.id}_thumb.jpg'),
+                          backgroundImage: NetworkImage('${Constants.MEDIA_HOST}${atracao.foto.thumbnail}'),
                         ),
                         title: Text(atracao.nome),
                         subtitle: Text(atracao.localizacao),
