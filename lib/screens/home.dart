@@ -1,10 +1,6 @@
-import 'dart:convert';
-
 import 'package:app_turismo_palmas/screens/sobre.dart';
+import 'package:app_turismo_palmas/utils.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-
-
 import '../models/AtracaoTuristica.dart';
 import '../services/AtracaoTuristicaService.dart';
 import '../constants.dart';
@@ -18,22 +14,10 @@ class PaginaHome extends StatefulWidget {
 }
 
 class _PaginaHomeState extends State<PaginaHome> {
-  late Future<List<AtracaoTuristica>> _atracoes;
-
-  Future<List<AtracaoTuristica>> carregarDados() async {
-    final response = await http.get(Uri.parse('${Constants.API_HOST}/atracoes-turisticas?populate=*'));
-    if (response.statusCode == 200) {
-      return AtracaoTuristicaService.fromJson(jsonDecode(response.body));
-    } else {
-      throw Exception('Falha ao carregar a lista de atrações turísticas.');
-    }
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    _atracoes = carregarDados();
-  }
+  final _atracoes = supabase
+      .from('atracoes_turisticas')
+      .select<List<Map<String, dynamic>>>(
+          'id, nome, localizacao, foto_thumbnail_url');
 
   @override
   Widget build(BuildContext context) {
@@ -55,31 +39,32 @@ class _PaginaHomeState extends State<PaginaHome> {
         ],
       ),
       body: Center(
-        child: FutureBuilder<List<AtracaoTuristica>>(
+        child: FutureBuilder<List<Map<String, dynamic>>>(
           future: _atracoes,
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               return ListView(
-                children: snapshot.data!
-                    .map(
-                      (atracao) => ListTile(
-                        leading: CircleAvatar(
-                          backgroundImage: NetworkImage('${Constants.MEDIA_HOST}${atracao.foto.thumbnail}'),
-                        ),
-                        title: Text(atracao.nome),
-                        subtitle: Text(atracao.localizacao),
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  PaginaDetalhesDaAtracao(atracao: atracao),
-                            ),
-                          );
-                        },
+                children: snapshot.data!.map(
+                  (atracao) {
+                    return ListTile(
+                      leading: CircleAvatar(
+                        backgroundImage: NetworkImage(
+                            getPublicUrl(atracao['foto_thumbnail_url'])),
                       ),
-                    )
-                    .toList(),
+                      title: Text(atracao['nome']),
+                      subtitle: Text(atracao['localizacao']),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                PaginaDetalhesDaAtracao(id: atracao['id']),
+                          ),
+                        );
+                      },
+                    );
+                  },
+                ).toList(),
               );
             } else if (snapshot.hasError) {
               return Text('${snapshot.error}');

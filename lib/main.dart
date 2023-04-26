@@ -1,11 +1,18 @@
 import 'package:app_turismo_palmas/screens/home.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
+import 'constants.dart';
 
 /* tipo de viajante: romântica, família, amigos, negócios, sozinho */
 
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Supabase.initialize(
+    url: Constants.SUPABASE_URL,
+    anonKey: Constants.SUPABASE_ANON_KEY
+  );
   Intl.defaultLocale = 'pt_BR';
 
   runApp(const MyApp());
