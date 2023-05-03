@@ -27,13 +27,8 @@ class _PaginaHomeState extends State<PaginaHome> {
         actions: [
           IconButton(
             icon: Icon(Icons.help_outline_rounded),
-            onPressed: () => {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => PaginaSobre(),
-                ),
-              )
+            onPressed: () {
+              Navigator.pushNamed(context, '/sobre');
             },
           )
         ],
@@ -54,12 +49,10 @@ class _PaginaHomeState extends State<PaginaHome> {
                       title: Text(atracao['nome']),
                       subtitle: Text(atracao['localizacao']),
                       onTap: () {
-                        Navigator.push(
+                        Navigator.pushNamed(
                           context,
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                PaginaDetalhesDaAtracao(id: atracao['id']),
-                          ),
+                          '/detalhes',
+                          arguments: PaginaDetalhesArguments(atracao['id']),
                         );
                       },
                     );

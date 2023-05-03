@@ -26,9 +26,14 @@ final Map<String, IconData> iconesDeDetalhes = {
 
 abstract class ItemDeDetalhe {}
 
-class PaginaDetalhesDaAtracao extends StatefulWidget {
-  const PaginaDetalhesDaAtracao({Key? key, required this.id}) : super(key: key);
+class PaginaDetalhesArguments {
   final int id;
+
+  PaginaDetalhesArguments(this.id);
+}
+
+class PaginaDetalhesDaAtracao extends StatefulWidget {
+  const PaginaDetalhesDaAtracao({Key? key}) : super(key: key);
 
   @override
   State<PaginaDetalhesDaAtracao> createState() =>
@@ -36,7 +41,7 @@ class PaginaDetalhesDaAtracao extends StatefulWidget {
 }
 
 class _PaginaDetalhesDaAtracaoState extends State<PaginaDetalhesDaAtracao> {
-  Future _carregarDados() {
+  Future _carregarDados(id) {
     return supabase.from('atracoes_turisticas').select('''
         *,
         destaques:destaques_de_atracoes_turisticas (
@@ -51,8 +56,10 @@ class _PaginaDetalhesDaAtracaoState extends State<PaginaDetalhesDaAtracao> {
         tipos_de_custos (
           nome
         )
-        ''').eq('id', widget.id).single();
+        ''').eq('id', id).single();
   }
+
+
 
   List<Column> _buildDestaques(atracao) {
     List<Column> lista = [];
@@ -76,8 +83,9 @@ class _PaginaDetalhesDaAtracaoState extends State<PaginaDetalhesDaAtracao> {
 
   @override
   Widget build(BuildContext context) {
+    final args = ModalRoute.of(context)!.settings.arguments as PaginaDetalhesArguments;
     return FutureBuilder(
-      future: _carregarDados(),
+      future: _carregarDados(args.id),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           final atracao = snapshot.data;
