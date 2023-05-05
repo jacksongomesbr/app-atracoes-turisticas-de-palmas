@@ -149,8 +149,8 @@ class _PaginaLoginState extends State<PaginaLogin> {
                                       },
                                     );
                                   }
+                                  _formKey.currentState!.reset();
                                 }
-                                _formKey.currentState!.reset();
                         },
                         child: enviando ? Text('Aguarde...') : Text('Entrar'),
                       ),
